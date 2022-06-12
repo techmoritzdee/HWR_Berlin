@@ -1,0 +1,64 @@
+Group B - Data Science Project 
+
+Variables of the DataFrame.
+Note: The order is not exactly the same as in the DataFrame, as such using Ctrl + F may helps finding the variable faster.
+
+"person_id" - 		unique identifier for each row, equivalent do person_id of tables "casearrest","prisonhistory", "jailhistory", "compas", "charge" 
+	      		and equivalent to id of tables "people", "compas_2y"
+
+"name" -		full name (first, last), identical to name in "compas_2y"
+
+"race" - 		race is seperated into 6 categories: "African-American", "Caucasian", "Hispanic", "Asian", "Native American" and "Other", 
+			identical to race in "compas_2y"
+
+"race_group" - 		race is seperated into 3 groups: African-American (0), Caucasian (1), Others (10). Based on race in "compas_2y"
+
+"sex" - 		Gender as Male / Female, identical to race in "compas_2y"
+
+"priors_count" - 	Number of previous prosecutions, does not consider the number of charges per prosecution, does not include prosecutions
+			with only charge_degree "0". Identical to priors_count in "compas_2y"
+
+"juv_fel_count" - 	Number of fellonies commited while considered juvenile, this does not count towards priors_count.
+			Identical to juv_fel_count in "compas_2y"
+
+"juv_misd_count" -	Number of misdemeanours commited while considered juvenile, this does not count towards priors_count.
+			Identical to juv_misd_count in "compas_2y"
+
+"juv_other_count" - 	Number of crimes not considered fellonies or misdemeanours commited while considered juvenile, this does not count towards 
+			priors_count. Identical to juv_misd_count in "compas_2y"
+
+"relationship" - 	0 = currently not in a relationship, 1 = in a relationship (S/O, married). Based on marital_status from "compas"
+
+"max_charge_degree" - 	Highest charge degree commited up to the day of compas. We differentiate higher between degrees of fellonies, as the crimes 
+			behind them increased drastically. Based on charge_degree from "charge"
+			This mapping was applied when comparing to the table "charge": 
+			"(CT)" : 0, "(0)" : 0,
+          		"(CO3)" : 1, "(MO3)" : 1, "(NI0)" : 1, "(TC4)" : 1, "(TCX)" : 1, "(M1)" : 1, "(M2)" : 1, "(M3)" : 1,
+            		"(F3)" : 2, 
+			"(F2)" : 3,
+			"(F1)" : 4,
+			"(F5)" : 5, "(F6)" : 5, "(F7)" : 5
+
+"sum_charges_0" - 	Number of crimes with the degree 0 commited at the time of taking Compas. Based on "charge"
+
+"sum_charges_1" - 	Number of crimes with the degree 1 commited at the time of taking Compas. Based on "charge"
+
+"sum_charges_2" - 	Number of crimes with the degree 2 commited at the time of taking Compas. Based on "charge"
+
+"sum_charges_3" - 	Number of crimes with the degree 3 commited at the time of taking Compas. Based on "charge"
+
+"sum_charges_4" - 	Number of crimes with the degree 4 commited at the time of taking Compas. Based on "charge"
+
+"sum_charges_5" - 	Number of crimes with the degree 5 commited at the time of taking Compas. Based on "charge"
+
+"mean_charges_per_case"-Average number of different charges per prosecution. This also counts charges / prosecution with charge_degree "0". 
+			Based on "charge"
+
+"decile_score" - 	Potential target variable; real COMPAS score with range 1-10, assigned by Northpointe (company behind Compas).
+			Identical to decile_score in "compas_2y"
+
+"two_year_recid" - 	Potential target variable; real knowledge about person reoffending from criminal records. Not considering crimes with 
+			charge_degree "0", "(MO3)" and "(CT)". Identical to two_year_recid in "compas_2y"
+
+"is_violent_recid" - 	Potential target variable; It remains unclear, what crimes count towards is_violent_recid. It is not bound to a 2y_period.
+			Identical to is_violent_recid in "compas_2y"
